@@ -1,0 +1,55 @@
+package samp;
+
+import java.util.*;
+
+public class samp {
+
+	public static void main(String[] args) {
+		
+		String str = new String("abcdfcbad");
+		Hashtable<Character, Integer> ht = new Hashtable<>();
+		int odd_count = 0;
+		int len = str.length();
+		
+		for(int i =0;i< 26;i++) {
+			char ch = (char) ('a' + i);
+			ht.put(ch , 0);
+		}
+		for(int i=0;i<len;i ++) {
+			ht.put(str.charAt(i), ht.get(str.charAt(i))+1);
+		}
+		
+		System.out.println("The Hash table is ");
+		System.out.println(ht);
+		
+		for(int i=0;i<26;i ++) {
+			int val = 0;
+			char ch = (char) ('a' + i);
+			
+			val = ht.get(ch);
+					
+			if(val%2 != 0) {
+				odd_count = odd_count + 1;
+			}
+		}
+		
+		System.out.println("odd count = "+ odd_count);
+		
+		if(odd_count == 1) {
+			System.out.print("Its a string formed from a palindrome string");
+		}
+		else {
+			if(odd_count < 1) {
+				if(len%2 != 0) {
+					System.out.println("its not a string formed from a palindrome string");
+				}
+				else {
+					System.out.print("Its a string formed from a palindrome string");
+				}
+			}
+			else {
+				System.out.println("its not a string formed from a palindrome string");
+			}
+		}
+	} // end of main
+} // end of class
