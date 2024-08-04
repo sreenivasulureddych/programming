@@ -1,0 +1,30 @@
+package samp;
+
+import java.util.*;
+
+public class samp {
+
+	public static void main(String[] args) {
+		
+		String str = new String("waterbottle");
+		String rot_str = new String("aterbottlew");
+		
+		int len = str.length();
+		str = str.concat(str);
+		int rot_len = rot_str.length();
+		int cat_len = str.length();
+				
+		for(int i=0;i<cat_len - rot_len + 1;i++) {
+			String sub_str;
+			sub_str = str.substring(i, i+rot_len);
+			System.out.println("Substring is   :   "+sub_str);
+						
+			if(sub_str.matches(rot_str)) {
+				System.out.println("Substring found , so its a rotated string ");
+				break;
+			}
+		}
+		System.out.println("the concatenated string is "+str);
+				
+	} // end of main
+} // end of class
